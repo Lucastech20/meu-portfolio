@@ -1,0 +1,152 @@
+/* Portfólio — Lucas Bezerra Cardoso */
+
+:root {
+  --cor-fundo: #4B0082;
+  --cor-texto: #FFFFFF;
+  --cor-texto-suave: rgba(255, 255, 255, 0.85);
+  --cor-card: #3A0066;
+  --cor-borda: rgba(255, 255, 255, 0.3);
+  --cor-destaque: #C9A7FF;
+  --cor-ok: #7CE0A3;
+  --cor-aviso: #FFD166;
+  --fonte: Arial, Helvetica, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+h1, h2, h3 { font-family: var(--fonte); line-height: 1.15; }
+
+.wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.25rem; }
+
+main { animation: fadeInUp 0.5s ease both; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Links */
+a { color: var(--cor-texto); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { color: var(--cor-aviso); }
+a:focus-visible { outline: 3px solid var(--cor-aviso); outline-offset: 3px; }
+
+/* Cabeçalho */
+header.top {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 1rem; padding: 1.25rem 0;
+}
+header.top strong { font-size: 1.05rem; }
+nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+nav a { text-decoration: none; font-weight: bold; }
+nav a:hover { text-decoration: underline; }
+
+/* Alinhamento: parágrafos justificados em todo o conteúdo principal.
+   O rodapé (Contato) fica de fora e segue alinhado à esquerda. */
+main p, .timeline li { text-align: justify; hyphens: auto; }
+
+/* Início */
+.hero { padding: 3.5rem 0 3rem; border-bottom: 1px solid var(--cor-borda); }
+h1 {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2.2rem, 6.5vw, 3.8rem);
+  letter-spacing: -0.02em;
+  max-width: 16ch;
+}
+.hero p { max-width: 38rem; margin: 0 0 1.5rem; font-size: 1.1rem; }
+
+.btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.btn {
+  display: inline-block; padding: 0.7rem 1.2rem; border-radius: 6px;
+  border: 2px solid var(--cor-texto); color: var(--cor-texto);
+  text-decoration: none; font-weight: bold;
+}
+.btn:hover { border-color: var(--cor-aviso); color: var(--cor-aviso); }
+.btn.primary { background: var(--cor-texto); color: var(--cor-fundo); }
+.btn.primary:hover { background: var(--cor-aviso); border-color: var(--cor-aviso); color: var(--cor-card); }
+
+/* Seções */
+section { padding: 3rem 0; border-bottom: 1px solid var(--cor-borda); }
+h2 { margin: 0 0 1.5rem; font-size: 1.8rem; }
+#projetos > p { margin: 0 0 1.25rem; }
+
+.about { display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 40rem; }
+.about p { margin: 0; }
+
+/* Projetos */
+.tickets { display: grid; gap: 1rem; }
+.ticket {
+  background: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-left: 5px solid var(--cor-destaque);
+  border-radius: 4px;
+  padding: 1.25rem 1.25rem 1.1rem;
+}
+.ticket h3 { margin: 0 0 0.25rem; font-size: 1.3rem; }
+.ticket p { margin: 0.25rem 0 0.9rem; max-width: 42rem; }
+
+.status {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.9rem; font-weight: bold; color: var(--cor-aviso); margin-bottom: 0.6rem;
+}
+.status.ok { color: var(--cor-ok); }
+.status::before { content: ""; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: currentColor; }
+
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0.75rem; margin: 0.75rem 0 1rem; }
+.shots img { display: block; width: 100%; height: auto; border: 1px solid var(--cor-borda); border-radius: 4px; }
+
+dl { display: grid; grid-template-columns: auto 1fr; gap: 0.25rem 1rem; margin: 0 0 1rem; font-size: 0.97rem; }
+dt { color: var(--cor-texto-suave); }
+dd { margin: 0; }
+.links { display: flex; gap: 1rem; flex-wrap: wrap; font-weight: bold; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 2rem; }
+.skills h3 { margin: 0 0 0.5rem; font-size: 1.1rem; }
+.skills ul { margin: 0; padding-left: 1.1rem; }
+.skills li { margin: 0.2rem 0; }
+
+/* Trajetória */
+.sub { margin: 2.25rem 0 1rem; font-size: 1.15rem; }
+h2 + .sub { margin-top: 0; }
+.timeline { list-style: none; margin: 0; padding: 0; max-width: 40rem; }
+.timeline li { padding: 0 0 1.25rem 1.25rem; border-left: 2px solid var(--cor-borda); position: relative; }
+.timeline li::before {
+  content: ""; position: absolute; left: -0.4rem; top: 0.55rem;
+  width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--cor-destaque);
+}
+.timeline b { font-size: 1.1rem; }
+.timeline span { display: block; color: var(--cor-texto-suave); font-size: 0.95rem; }
+.certs { margin: 0; padding-left: 1.1rem; max-width: 40rem; }
+.certs li { margin: 0.25rem 0; }
+
+/* Contato (rodapé) — alinhado à esquerda, sem justificar */
+footer { padding: 2.5rem 0 3rem; text-align: left; }
+.contact { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 1.1rem; font-weight: bold; }
+small { color: var(--cor-texto-suave); }
+
+@media (min-width: 48rem) {
+  .tickets { grid-template-columns: 1fr 1fr; }
+  .ticket.wide { grid-column: 1 / -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  main { animation: none; }
+}
